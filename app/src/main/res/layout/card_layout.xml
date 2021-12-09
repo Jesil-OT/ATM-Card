@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="400dp"
+    android:layout_height="270dp"
+    xmlns:tools="http://schemas.android.com/tools"
+    app:cardCornerRadius="10dp"
+    app:cardElevation="35dp"
+    android:layout_marginTop="6dp"
+    android:layout_gravity="center|top"
+    android:backgroundTint="@color/card_first">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <View
+            android:id="@+id/atm_card_first_background"
+            android:layout_width="wrap_content"
+            android:layout_height="130dp"
+            android:layout_marginEnd="24dp"
+            android:background="@drawable/atm_card_drawable_1"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.666"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <View
+            android:id="@+id/atm_card_second_background"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:background="@drawable/atm_card_drawable_2"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <View
+            android:id="@+id/atm_card_chip"
+            android:layout_width="51dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="34dp"
+            android:background="@drawable/atm_card_chip"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/atm_card_number"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
+            android:fontFamily="@font/gilroy_regular"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:textSize="30sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/atm_card_chip"
+            tools:text="**** **** **** 3749" />
+
+        <TextView
+            android:id="@+id/atm_card_card_name_header"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="50dp"
+            android:fontFamily="@font/gilroy_semibold"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:textSize="11sp"
+            app:layout_constraintStart_toStartOf="@+id/atm_card_number"
+            app:layout_constraintTop_toBottomOf="@+id/atm_card_number"
+            android:text="Card holder name"/>
+
+        <TextView
+            android:id="@+id/atm_card_card_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:textStyle="bold"
+            android:textSize="14sp"
+            android:fontFamily="@font/gilroy_semibold"
+            app:layout_constraintEnd_toEndOf="@+id/atm_card_card_name_header"
+            app:layout_constraintStart_toStartOf="@+id/atm_card_card_name_header"
+            app:layout_constraintTop_toBottomOf="@+id/atm_card_card_name_header"
+            tools:text="Jesil Toborowei" />
+
+        <TextView
+            android:id="@+id/atm_card_expiring_date_header"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="90dp"
+            android:fontFamily="@font/gilroy_semibold"
+            android:text="Expiry Date"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:textSize="11sp"
+            app:layout_constraintStart_toEndOf="@+id/atm_card_card_name_header"
+            app:layout_constraintTop_toTopOf="@+id/atm_card_card_name_header" />
+
+        <TextView
+            android:id="@+id/atm_card_expiring_date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:fontFamily="@font/gilroy_semibold"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="@+id/atm_card_expiring_date_header"
+            app:layout_constraintStart_toStartOf="@+id/atm_card_expiring_date_header"
+            app:layout_constraintTop_toBottomOf="@+id/atm_card_expiring_date_header"
+            tools:text="05/23" />
+
+        <ImageView
+            android:id="@+id/atm_card_type"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_marginEnd="24dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/atm_card_second_background"
+            tools:src="@drawable/atm_card_debit_1" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</com.google.android.material.card.MaterialCardView>

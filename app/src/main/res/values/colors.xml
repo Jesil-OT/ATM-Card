@@ -10,5 +10,6 @@
 
     <color name="gray">#706E6E</color>
     <color name="red">#E82A2A</color>
+    <color name="card_first">#2C2D84</color>
 
 </resources>
