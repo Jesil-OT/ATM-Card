@@ -5,7 +5,7 @@ import com.jesil.card.data.dto.Card
 import kotlinx.coroutines.flow.Flow
 
 @Dao
-interface CardDto {
+interface CardDao {
 
     @Query("SELECT * FROM card_table")
     fun getAllCard(): Flow<List<Card>>
