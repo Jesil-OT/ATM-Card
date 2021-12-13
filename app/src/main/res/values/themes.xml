@@ -18,8 +18,9 @@
 
     <style name="AppBottomSheetDialogTheme"
         parent="Theme.Design.Light.BottomSheetDialog">
-        <item name="android:statusBarColor">@color/white</item>
-        <item name="android:navigationBarColor">@color/white</item>
+        <item name="colorPrimary">@color/purple_700</item>
+        <item name="colorPrimaryVariant">@color/purple_700</item>
+        <item name="colorOnPrimary">@color/white</item>>
         <item name="bottomSheetStyle">@style/AppModalStyle</item>
     </style>
 

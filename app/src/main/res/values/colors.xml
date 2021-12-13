@@ -12,5 +12,6 @@
     <color name="other_gray">#4A4848</color>
     <color name="red">#E82A2A</color>
     <color name="card_first">#2C2D84</color>
+    <color name="card_second">#EFB506</color>
 
 </resources>
