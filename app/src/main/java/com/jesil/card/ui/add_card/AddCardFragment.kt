@@ -6,8 +6,12 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
-import com.jesil.card.R
+import com.jesil.card.data.dto.Card
 import com.jesil.card.databinding.AddCardFragmentBinding
+import com.jesil.card.ui.utils.DataResult.Loading
+import com.jesil.card.ui.utils.DataResult.Failure
+import com.jesil.card.ui.utils.DataResult.Success
+import com.jesil.card.ui.utils.messageToUser
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 /**
@@ -18,7 +22,7 @@ import org.koin.androidx.viewmodel.ext.android.viewModel
 class AddCardFragment : BottomSheetDialogFragment() {
     private var _binding: AddCardFragmentBinding? = null
     private val binding get() = _binding!!
-    private val viewModel  by viewModel<AddCardViewModel>()
+    private val addCardViewModel: AddCardViewModel by viewModel()
 
     companion object {
         const val TAG = "AddCardFragment"
@@ -30,8 +34,60 @@ class AddCardFragment : BottomSheetDialogFragment() {
         savedInstanceState: Bundle?
     ): View {
         _binding = AddCardFragmentBinding.inflate(inflater, container, false)
+        binding.apply {
+            btAddCard.setOnClickListener {
+                doAddCard()
+            }
+        }
         return binding.root
     }
+
+    private fun doAddCard() = with(binding) {
+        val cardName = etCardName.text.toString()
+        val cardNumber = etCardNumber.text.toString()
+        val cardExpiryDate = etCardExpiring.text.toString()
+        val cardCvv = etCardCvv.text.toString()
+
+        val card = Card(
+            cardHolderName = cardName,
+            cardNumber = cardNumber,
+            cardExpiringDate = cardExpiryDate,
+            cardCvv = cardCvv
+        )
+
+        addCard(card)
+
+    }
+
+    private fun addCard(card: Card) {
+        addCardViewModel.addCard(card).observe(viewLifecycleOwner) { card ->
+            when (card) {
+                is Loading -> {
+                    loadingState()
+                }
+                is Success -> {
+                    successState()
+                }
+                is Failure -> {
+                    failureState()
+                }
+            }
+        }
+    }
+
+    private fun successState() = with(binding) {
+        addCardLayout messageToUser "Card was added Successfully"
+        dialog?.dismiss()
+    }
+
+    private fun failureState() = with(binding){
+        addCardLayout messageToUser "Card was not added"
+    }
+
+    private fun loadingState() = with(binding){
+        addCardLayout messageToUser "Loading..."
+    }
+
 
     override fun onDestroyView() {
         super.onDestroyView()
