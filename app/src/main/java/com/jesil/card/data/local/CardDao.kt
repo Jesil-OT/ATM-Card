@@ -8,12 +8,12 @@ import kotlinx.coroutines.flow.Flow
 interface CardDao {
 
     @Query("SELECT * FROM card_table")
-    fun getAllCard(): Flow<List<Card>>
+    suspend fun getAllCard(): List<Card>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    fun insertCard(card: Card)
+    suspend fun insertCard(card: Card)
 
     @Delete
-    fun deleteCard(card: Card)
+    suspend fun deleteCard(card: Card)
 
 }
