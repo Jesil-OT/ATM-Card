@@ -7,7 +7,7 @@ import androidx.room.PrimaryKey
 @Entity(tableName = "card_table")
 data class Card(
     @PrimaryKey(autoGenerate = true)
-    val pk: String = "",
+    val pk: Int = 0,
     @ColumnInfo(name = "card_holder_name")
     val cardHolderName: String,
     @ColumnInfo(name = "card_number")
@@ -15,5 +15,5 @@ data class Card(
     @ColumnInfo(name = "card_expiring_date")
     val cardExpiringDate: String,
     @ColumnInfo(name = "card_cvv")
-    val cardCvv: Int?
+    val cardCvv: String?
 )
