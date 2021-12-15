@@ -16,22 +16,21 @@ class CardsViewModel(
     private val cardRepo: CardRepository
 ) : ViewModel() {
 
-    private val cardsUI = MutableLiveData<DataResult<Card>>()
+    private val cardsUI = MutableLiveData<List<Card>>()
 
-    fun cards(): LiveData<DataResult<Card>>{
+    fun cards(): LiveData<List<Card>> {
         doCards()
         return cardsUI
     }
 
-    private fun doCards() {
-        viewModelScope.launch {
-            cardRepo.getAllCard().onStart {
-                cardsUI.postValue(DataResult.Loading)
-            }.catch {
-                cardsUI.postValue(DataResult.Failure(it.cause))
-            }.collect {
-                cardsUI.postValue(DataResult.Success(it))
-            }
+    fun deleteCard(card: Card) = viewModelScope.launch {
+        cardRepo.deleteCard(card)
+    }
+
+    private fun doCards() = viewModelScope.launch {
+        cardRepo.getAllCard().collect{
+            cardsUI.postValue(it)
         }
     }
+
 }

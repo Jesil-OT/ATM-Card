@@ -12,10 +12,8 @@ class CardRepositoryImpl(
         cardDao.insertCard(card = card)
     }
 
-    override suspend fun getAllCard(): Flow<List<Card>> {
-        return flow {
-            emit(cardDao.getAllCard())
-        }
+    override fun getAllCard(): Flow<List<Card>> {
+        return cardDao.getAllCard()
     }
 
     override suspend fun deleteCard(card: Card) {
