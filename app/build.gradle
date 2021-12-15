@@ -65,13 +65,11 @@ dependencies {
     implementation "androidx.navigation:navigation-ui-ktx:$nav_version"
 
     //koin
-    def koin_version = "3.1.4"
-    // Koin main features for Android
-//    implementation "io.insert-koin:koin-android:$koin_version"
+    def koin_version = "2.0.1"
 //    // Navigation Graph
 //    implementation "io.insert-koin:koin-androidx-navigation:$koin_version"
-    implementation "org.koin:koin-android:2.0.1"
-    implementation 'org.koin:koin-androidx-viewmodel:2.0.1'
-    implementation 'org.koin:koin-androidx-scope:2.0.1'
+    implementation "org.koin:koin-android:$koin_version"
+    implementation "org.koin:koin-androidx-viewmodel:$koin_version"
+    implementation "org.koin:koin-androidx-scope:$koin_version"
 
 }
