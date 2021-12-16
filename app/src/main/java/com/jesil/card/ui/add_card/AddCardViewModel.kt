@@ -14,22 +14,10 @@ class AddCardViewModel(
 ): ViewModel() {
 
     private val addCardUI = MutableLiveData<DataResult<Card>>()
-    private val deleteCardUI = MutableLiveData<DataResult<Card>>()
 
     fun addCard(card: Card): LiveData<DataResult<Card>>{
         doAddCard(card)
         return addCardUI
-    }
-
-    fun deleteCard(card: Card): LiveData<DataResult<Card>>{
-        doDeleteCard(card)
-        return deleteCardUI
-    }
-
-    private fun doDeleteCard(card: Card) {
-        viewModelScope.launch {
-            cardRepo.deleteCard(card)
-        }
     }
 
     private fun doAddCard(card: Card) {

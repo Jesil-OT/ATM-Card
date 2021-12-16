@@ -37,6 +37,7 @@ class AddCardFragment : BottomSheetDialogFragment() {
         binding.apply {
             btAddCard.setOnClickListener {
                 doAddCard()
+                dismiss()
             }
         }
         return binding.root
@@ -77,7 +78,6 @@ class AddCardFragment : BottomSheetDialogFragment() {
 
     private fun successState() = with(binding) {
         addCardLayout messageToUser "Card was added Successfully"
-        dialog?.dismiss()
     }
 
     private fun failureState() = with(binding){
